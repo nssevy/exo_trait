@@ -30,12 +30,18 @@ impl Employe for Manager {
     }
 }
 
+impl Stagiaire {
+    fn new(a: String) -> Stagiaire {
+        Stagiaire {nom: a }
+    }
+}
+
 fn affiche_paie<T: Employe>(employe: &T) {
     println!("{} : {} euros", employe.nom(), employe.salaire())
 }
 
 fn main() {
-    let alice = Stagiaire {nom: String::from("Alice")};
+    let alice = Stagiaire::new(String::from("Alice"));
     let bob = Manager {nom: String::from("Bob") };
 
     affiche_paie(&alice);
