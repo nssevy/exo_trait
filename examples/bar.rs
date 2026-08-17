@@ -45,5 +45,4 @@ fn main() {
     println!("{}",cafe.servir());
     println!("{}",the.servir());
 
-    dbg!(cafe.sucre);
 }
