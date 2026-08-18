@@ -46,7 +46,7 @@ fn plus_rapide(voitures: &Vec<Voiture>) -> Option<String> {
 
 fn print_vehicule(v: &Option<String>) {
     match v {
-        Some(valeur) => println!("{}", valeur),
+        Some(valeur) => println!("Le plus rapide : {}", valeur),
         None => println!("Aucun véhicule"),
     }
 }
