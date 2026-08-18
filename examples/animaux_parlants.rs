@@ -1,9 +1,9 @@
 #![allow(unused)]
 
 trait Animal {
-    fn cri (&self) -> String;
+    fn cri(&self) -> String;
 
-    fn parler (&self) {
+    fn parler(&self) {
         println!("Je fais : {}", self.cri())
     }
 }
@@ -19,22 +19,25 @@ struct Chat {
 }
 
 impl Animal for Chien {
-    fn cri (&self) -> String {
+    fn cri(&self) -> String {
         self.nom.clone()
     }
 }
 
 impl Animal for Chat {
-    fn cri (&self) -> String {
+    fn cri(&self) -> String {
         self.nom.clone()
     }
 }
 
 fn main() {
-    let chien: Chien = Chien { nom: String::from("Wouf") };
+    let chien: Chien = Chien {
+        nom: String::from("Wouf"),
+    };
     chien.parler();
 
-    let chat: Chat = Chat { nom: String::from("Miaou") };
+    let chat: Chat = Chat {
+        nom: String::from("Miaou"),
+    };
     chat.parler();
-
 }

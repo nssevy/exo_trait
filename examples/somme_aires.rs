@@ -19,7 +19,10 @@ impl Forme for Rectangle {
 impl Rectangle {
     //Constructeur
     fn new(l: f64, h: f64) -> Rectangle {
-        Rectangle {largeur: l, hauteur: h  }
+        Rectangle {
+            largeur: l,
+            hauteur: h,
+        }
     }
 }
 
@@ -34,7 +37,6 @@ fn aire_totale(formes: &[Rectangle]) -> f64 {
 }
 
 fn main() {
-
     let mut rectangle_un: Rectangle = Rectangle::new(6.0, 3.0);
     let mut rectangle_deux: Rectangle = Rectangle::new(10.0, 5.0);
     let mut rectangle_trois: Rectangle = Rectangle::new(14.0, 6.0);

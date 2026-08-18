@@ -15,22 +15,22 @@ struct Triangle {
 
 impl Dessinable for Carre {
     fn dessiner(&self) -> String {
-       format!("Carre de côté {}", self.coter) 
+        format!("Carre de côté {}", self.coter)
     }
 }
 
 impl Dessinable for Triangle {
     fn dessiner(&self) -> String {
-       format!("Triangle {}x{}", self.base, self.hauteur)
+        format!("Triangle {}x{}", self.base, self.hauteur)
     }
 }
 
 fn fabrique_carrer(coter: u32) -> impl Dessinable {
-    Carre {coter}
+    Carre { coter }
 }
 
 fn fabrique_triangle(base: u32, hauteur: u32) -> impl Dessinable {
-    Triangle {base, hauteur }
+    Triangle { base, hauteur }
 }
 
 fn main() {

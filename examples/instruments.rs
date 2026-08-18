@@ -21,14 +21,15 @@ impl Instrument for Guitare {
 
 impl Instrument for Piano {
     fn jouer(&self) -> String {
-       format!("Le piano à {} touches retentit", self.nombre_de_touche) 
+        format!("Le piano à {} touches retentit", self.nombre_de_touche)
     }
 }
 
-
 fn main() {
     let guitare: Guitare = Guitare { nombre_de_corde: 6 };
-    let piano: Piano = Piano { nombre_de_touche: 88 };
+    let piano: Piano = Piano {
+        nombre_de_touche: 88,
+    };
 
     println!("{}", guitare.jouer());
     println!("{}", piano.jouer());

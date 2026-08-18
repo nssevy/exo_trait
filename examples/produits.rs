@@ -5,7 +5,7 @@ trait Nomme {
 }
 
 trait Taxable {
-    fn prix_ht(&self) -> u32;//en euros
+    fn prix_ht(&self) -> u32; //en euros
 }
 
 #[derive(Debug)]
@@ -44,16 +44,20 @@ impl Taxable for Livre {
     }
 }
 
-fn ticket<T: Nomme + Taxable> (article: &T) {
+fn ticket<T: Nomme + Taxable>(article: &T) {
     println!("{} : {} euros HT", article.nom(), article.prix_ht());
 }
 
 fn main() {
-    let ordi: Ordinateur = Ordinateur { nom: String::from("Ordinateur portable"), prix: 800 };
-    let livre: Livre = Livre { nom: String::from("Rust en action"), prix: 39 };
+    let ordi: Ordinateur = Ordinateur {
+        nom: String::from("Ordinateur portable"),
+        prix: 800,
+    };
+    let livre: Livre = Livre {
+        nom: String::from("Rust en action"),
+        prix: 39,
+    };
 
     ticket(&ordi);
     ticket(&livre);
-
-
 }

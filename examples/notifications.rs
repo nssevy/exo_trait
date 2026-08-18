@@ -35,16 +35,21 @@ impl Notifiable for Sms {
     }
 }
 
-fn envoyer <T: Notifiable> (notifiable: &T) {
-    println!("Envoi : {} vers {}",notifiable.nom(), notifiable.message())
+fn envoyer<T: Notifiable>(notifiable: &T) {
+    println!("Envoi : {} vers {}", notifiable.nom(), notifiable.message())
 }
 
-fn main () {
-    
-    let email: Email = Email{nom: String::from("Mail"), adresse: String::from("alice@exemple.fr")};
+fn main() {
+    let email: Email = Email {
+        nom: String::from("Mail"),
+        adresse: String::from("alice@exemple.fr"),
+    };
     envoyer(&email);
 
-    let message: Sms = Sms {nom: String::from("SMS"), numero: 0600000000 };
+    let message: Sms = Sms {
+        nom: String::from("SMS"),
+        numero: 0600000000,
+    };
     envoyer(&message);
 
     //dbg!(&message.message());

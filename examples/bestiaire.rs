@@ -5,24 +5,23 @@ trait EtreVivant {
 }
 
 trait Creature: EtreVivant {
-
     fn points_de_vie(&self) -> u32;
 
     fn etat(&self) -> String {
-        format!("{} a {} PV", self.nom(), self.points_de_vie() )
+        format!("{} a {} PV", self.nom(), self.points_de_vie())
     }
 }
 
 #[derive(Debug)]
 struct Dragon {
     nom: String,
-    points_de_vie: u32
+    points_de_vie: u32,
 }
 
 #[derive(Debug)]
 struct Gobelin {
     nom: String,
-    points_de_vie: u32
+    points_de_vie: u32,
 }
 
 impl EtreVivant for Dragon {
@@ -37,7 +36,11 @@ impl Creature for Dragon {
     }
 
     fn etat(&self) -> String {
-        format!("{} a {} PV et crache du feu", self.nom(), self.points_de_vie() )
+        format!(
+            "{} a {} PV et crache du feu",
+            self.nom(),
+            self.points_de_vie()
+        )
     }
 }
 
@@ -51,7 +54,6 @@ impl Creature for Gobelin {
     fn points_de_vie(&self) -> u32 {
         self.points_de_vie
     }
-
 }
 
 fn inspecter<T: Creature>(c: &T) {
@@ -59,8 +61,14 @@ fn inspecter<T: Creature>(c: &T) {
 }
 
 fn main() {
-    let dragon: Dragon = Dragon{ nom: String::from("Smaug"), points_de_vie: 500 };
-    let gobelin: Gobelin = Gobelin{ nom: String::from("Grok"), points_de_vie: 30 };
+    let dragon: Dragon = Dragon {
+        nom: String::from("Smaug"),
+        points_de_vie: 500,
+    };
+    let gobelin: Gobelin = Gobelin {
+        nom: String::from("Grok"),
+        points_de_vie: 30,
+    };
 
     inspecter(&dragon);
     inspecter(&gobelin);

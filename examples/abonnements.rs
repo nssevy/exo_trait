@@ -35,9 +35,13 @@ fn afficher_facture<T: Abonnement>(a: &T) {
 }
 
 fn main() {
-    let alice: Gratuit = Gratuit { nom_client: String::from("Alice") };
+    let alice: Gratuit = Gratuit {
+        nom_client: String::from("Alice"),
+    };
     afficher_facture(&alice);
 
-    let bob: Prenium = Prenium { nom_client: String::from("Bob") };
+    let bob: Prenium = Prenium {
+        nom_client: String::from("Bob"),
+    };
     afficher_facture(&bob);
 }

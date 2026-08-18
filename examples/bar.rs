@@ -10,7 +10,7 @@ struct Cafe {
 
 struct The {
     //name: String,
-    temps_infusion: u32, // Temps d'infusion en minutes 
+    temps_infusion: u32, // Temps d'infusion en minutes
 }
 
 impl Boisson for Cafe {
@@ -38,11 +38,9 @@ fn prepare_the(a: u32) -> impl Boisson {
 }
 
 fn main() {
-
     let cafe = prepare_cafe(2);
     let the = prepare_the(3);
 
-    println!("{}",cafe.servir());
-    println!("{}",the.servir());
-
+    println!("{}", cafe.servir());
+    println!("{}", the.servir());
 }

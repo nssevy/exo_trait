@@ -41,13 +41,19 @@ impl Achetable for Jouet {
     }
 }
 
-fn etiquette<T: Descriptible + Achetable> (article: &T) {
+fn etiquette<T: Descriptible + Achetable>(article: &T) {
     println!("{} : {} euros", article.description(), article.prix());
 }
 
 fn main() {
-    let livre = Livre { titre: String::from("Rust en action"), prix: 39 };
-    let jouet = Jouet { nom: String::from("Robot"), prix: 25};
+    let livre = Livre {
+        titre: String::from("Rust en action"),
+        prix: 39,
+    };
+    let jouet = Jouet {
+        nom: String::from("Robot"),
+        prix: 25,
+    };
     etiquette(&livre);
     etiquette(&jouet);
 }

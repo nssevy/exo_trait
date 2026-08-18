@@ -32,7 +32,7 @@ impl Employe for Manager {
 
 impl Stagiaire {
     fn new(a: String) -> Stagiaire {
-        Stagiaire {nom: a }
+        Stagiaire { nom: a }
     }
 }
 
@@ -42,7 +42,9 @@ fn affiche_paie<T: Employe>(employe: &T) {
 
 fn main() {
     let alice = Stagiaire::new(String::from("Alice"));
-    let bob = Manager {nom: String::from("Bob") };
+    let bob = Manager {
+        nom: String::from("Bob"),
+    };
 
     affiche_paie(&alice);
     affiche_paie(&bob);

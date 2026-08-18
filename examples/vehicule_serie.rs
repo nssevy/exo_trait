@@ -7,7 +7,11 @@ trait Machine {
 trait Vehicule: Machine {
     fn modele(&self) -> String;
     fn presentation(&self) -> String {
-        format!("{} (numero de serie : {})", self.modele(), self.numero_serie())
+        format!(
+            "{} (numero de serie : {})",
+            self.modele(),
+            self.numero_serie()
+        )
     }
 }
 #[derive(Debug)]
@@ -28,8 +32,11 @@ impl Vehicule for Camion {
     }
 }
 
-fn main(){
-    let camion = Camion {modele: String::from("Volvo FH"), numero_serie: 4021 };
+fn main() {
+    let camion = Camion {
+        modele: String::from("Volvo FH"),
+        numero_serie: 4021,
+    };
     println!("{}", camion.presentation());
     println!("{:?}", camion);
 }

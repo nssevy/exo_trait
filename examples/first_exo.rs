@@ -2,7 +2,6 @@
 struct Voiture {
     nom: String,
     vitesse_maximale: u32,
-
 }
 
 struct Moto {
@@ -14,7 +13,7 @@ struct Moto {
 trait InfoVehicule {
     fn get_nom(&self) -> String;
     fn get_max_vitesse(&self) -> u32;
-    fn fiche(&self){
+    fn fiche(&self) {
         println!("{} : {} km/h", self.get_nom(), self.get_max_vitesse());
     }
 }
@@ -38,11 +37,17 @@ impl InfoVehicule for Moto {
 }
 
 fn main() {
-    let renault: Voiture = Voiture{nom: String::from("Twingo"), vitesse_maximale: 130};
+    let renault: Voiture = Voiture {
+        nom: String::from("Twingo"),
+        vitesse_maximale: 130,
+    };
 
-    let moto: Moto = Moto{cylindree: String::from("600cc"), nom: String::from("Moto"), vitesse_maximale: 180};
+    let moto: Moto = Moto {
+        cylindree: String::from("600cc"),
+        nom: String::from("Moto"),
+        vitesse_maximale: 180,
+    };
 
     renault.fiche();
     moto.fiche();
-
 }

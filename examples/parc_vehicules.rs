@@ -33,12 +33,22 @@ impl Vehicule for Avion {
 }
 
 fn annoncer<T: Vehicule>(vehicule: &T) {
-    println!("Vehicule : {}, vitesse max : {:?} km/h", vehicule.nom(), vehicule.vitesse_max());
+    println!(
+        "Vehicule : {}, vitesse max : {:?} km/h",
+        vehicule.nom(),
+        vehicule.vitesse_max()
+    );
 }
 
 fn main() {
-    let voiture: Voiture = Voiture {modele: String::from("Clio"), vitesse_max: 180 };
-    let avion: Avion =  Avion {vol: String::from("Vol AF447"), vitesse_max: 900 };
+    let voiture: Voiture = Voiture {
+        modele: String::from("Clio"),
+        vitesse_max: 180,
+    };
+    let avion: Avion = Avion {
+        vol: String::from("Vol AF447"),
+        vitesse_max: 900,
+    };
 
     annoncer(&voiture);
     annoncer(&avion)

@@ -30,8 +30,9 @@ impl Forme for Cercle {
 }
 
 fn main() {
-
-    let cercle: Cercle = Cercle { nom: String::from("C1"), rayon: 2.0 };
+    let cercle: Cercle = Cercle {
+        nom: String::from("C1"),
+        rayon: 2.0,
+    };
     cercle.resume();
-
 }
