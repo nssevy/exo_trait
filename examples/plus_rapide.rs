@@ -50,8 +50,6 @@ fn print_vehicule(v: &Option<String>) {
     }
 }
 
-
-
 fn main() {
     //Les voitures initialiser
     let voiture_n1: Voiture = Voiture::new(String::from("Bolide"), 23_000);

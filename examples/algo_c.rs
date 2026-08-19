@@ -10,7 +10,7 @@ fn occurence(tab: &[i32], valeur: i32) -> usize {
         if tab[i] == valeur {
             apparition += 1;
         }
-        i+= 1;
+        i += 1;
     }
 
     apparition
@@ -24,7 +24,22 @@ fn main() {
     let v_2: i32 = 99;
     let v_3: i32 = 5;
 
-    println!("Occurences de {} dans {:?} : {}", v_1, tab_1, occurence(&tab_1, v_1));
-    println!("Occurences de {} dans {:?} : {}", v_2, tab_1, occurence(&tab_1, v_2));
-    println!("Occurences de {} dans {:?} : {}", v_3, tab_2, occurence(&tab_2, v_3));
+    println!(
+        "Occurences de {} dans {:?} : {}",
+        v_1,
+        tab_1,
+        occurence(&tab_1, v_1)
+    );
+    println!(
+        "Occurences de {} dans {:?} : {}",
+        v_2,
+        tab_1,
+        occurence(&tab_1, v_2)
+    );
+    println!(
+        "Occurences de {} dans {:?} : {}",
+        v_3,
+        tab_2,
+        occurence(&tab_2, v_3)
+    );
 }

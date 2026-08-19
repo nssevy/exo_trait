@@ -9,17 +9,14 @@ fn get_position_value(slice: &[i32], value: i32) -> Option<usize> {
     let mut i: usize = 0;
 
     while i < slice.len() {
-
         if slice[i] == value {
             return Some(i);
         }
 
         i += 1;
-
     }
 
     None
-
 }
 
 fn main() {
@@ -30,10 +27,25 @@ fn main() {
     let valeur_2: i32 = 12;
     let valeur_3: i32 = 99;
 
-    println!("Recherche de {} : {:?}", &valeur_1, get_position_value(&nombres, valeur_1));
-    println!("Recherche de {} : {:?}", &valeur_2, get_position_value(&nombres, valeur_2));
-    println!("Recherche de {} : {:?}", &valeur_3, get_position_value(&nombres, valeur_3));
+    println!(
+        "Recherche de {} : {:?}",
+        &valeur_1,
+        get_position_value(&nombres, valeur_1)
+    );
+    println!(
+        "Recherche de {} : {:?}",
+        &valeur_2,
+        get_position_value(&nombres, valeur_2)
+    );
+    println!(
+        "Recherche de {} : {:?}",
+        &valeur_3,
+        get_position_value(&nombres, valeur_3)
+    );
 
-    println!("Recherche de {} : {:?}", &valeur_3, get_position_value(&vide, valeur_3));
-
+    println!(
+        "Recherche de {} : {:?}",
+        &valeur_3,
+        get_position_value(&vide, valeur_3)
+    );
 }
