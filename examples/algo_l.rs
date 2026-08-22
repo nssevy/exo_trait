@@ -8,30 +8,31 @@ Tu exploites le fait que les deux entrées sont déjà ordonnées.*/
 fn tab_croissant(a: &[i32], b: &[i32]) -> Vec<i32> {
     let mut tableau = Vec::new();
     let mut i: usize = 0;
+    let mut j: usize = 0;
 
-    while i < a.len() {
-        if a[i] < b[i] {
+    while i+1 < a.len() {
+
+        if a[i] < b[j] {
             tableau.push(a[i]);
-            tableau.push(b[i]);
+            i += 1;
         } else {
-            tableau.push(b[i]);
-            tableau.push(a[i]);
+            tableau.push(b[j]);
+            j += 1;
         }
-        dbg!(&i);
-        i+= 1
-    }
+        dbg!(i);
 
+    }
     tableau
 }
 
 fn main() {
-    /*let tab1: Vec<i32> = vec![1, 4, 9];
-    let tab2: Vec<i32> = vec![2, 3, 10];*/
+    let tab1: Vec<i32> = vec![1, 4, 9];
+    let tab2: Vec<i32> = vec![2, 3, 10];
 
     let tab3: Vec<i32> = vec![1, 2, 3];
     let tab4: Vec<i32> = vec![4, 5, 6];
 
-    //println!("{:?}", tab_croissant(&tab1, &tab2));
+    println!("{:?}", tab_croissant(&tab1, &tab2));
     println!("{:?}", tab_croissant(&tab3, &tab4));
 }
 
