@@ -6,12 +6,13 @@ fn x_fois(tab: &[i32]) -> Vec<(i32, usize)> {
     let mut i: usize = 0;
     let mut tableau = Vec::new();
 
-    if tab.is_empty() {
+    if tab.is_empty() { // si le tableau est vide, renvoie un tableau vide.
         return tableau;
     }
 
     let mut count: usize = 1;
-    let mut tuple: (i32, usize) = (tab[0],1);
+    let mut tuple: (i32, usize) = (tab[0],1); // tab[0], est pour le cas ou il y a un qu'un seul
+    // dernier élément dans le tableau, le if sera instant faut donc pour push l'éléemnt courant.
 
     while i+1 < tab.len() {
         let courant: i32 = tab[i];
