@@ -1,4 +1,4 @@
-#![allow(unused)]
+//#![allow(unused)]
 
 //Modéliser une réponse d'une API.
 #[derive(Debug)]
@@ -31,6 +31,7 @@ impl Reponse {
         Reponse::Redirection { url, permanente: false }
     }
 
+    #[allow(unused)] // pas utiliser
     fn permanent_redirect(url: String) -> Self {
         Reponse::Redirection { url, permanente: true }
     }
