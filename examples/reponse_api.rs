@@ -21,29 +21,60 @@ enum Reponse {
     Timeout,
 }
 
-fn traiter(reponse: &Reponse) {
+impl Reponse {
 
-    match reponse {
-        Reponse::Ok(Utilisateur {id, pseudo, actif: true}) => { println!("200 - Utilisateur {} ({})", pseudo, id)},
-        Reponse::Ok(Utilisateur {id, pseudo, actif: false}) => { println!("403 - Compte désactivé : {}", pseudo)},
-        Reponse::Redirection {url, permanente: false} => { println!("302 - Redirection vers {}", url)},
-        Reponse::Erreur {code, message} => { println!("{} - {}", code, message)},
-        Reponse::Timeout => println!("504 - Aucune reponse du serveur"),
-        _ => println!("courage"),
+    fn ok(utilisateur: Utilisateur) -> Self {
+        Reponse::Ok(utilisateur)
     }
+
+    fn redirect(url: String) -> Self {
+        Reponse::Redirection { url, permanente: false }
+    }
+
+    fn permanent_redirect(url: String) -> Self {
+        Reponse::Redirection { url, permanente: true }
+    }
+
+    fn erreur(code: u32, message: String) -> Self {
+        Reponse::Erreur { code, message }
+    }
+
+    fn timeout() -> Self {
+        Reponse::Timeout
+    }
+
+    fn traiter(&self) {
+        match self {
+            Reponse::Ok(Utilisateur {id, pseudo, actif: true}) => { println!("200 - Utilisateur {} ({})", id, pseudo)},
+            Reponse::Ok(Utilisateur {pseudo, actif: false, ..}) => { println!("403 - Compte désactivé : {}", pseudo)},
+            Reponse::Redirection {url, permanente: false} => { println!("302 - Redirection vers {}", url)},
+            Reponse::Erreur {code, message} => { println!("{} - {}", code, message)},
+            Reponse::Timeout => println!("504 - Aucune reponse du serveur"),
+            _ => unreachable!(),
+        }
+    }
+
 }
 
 fn main() {
 
-    let utilisateur: Utilisateur = Utilisateur::new(7, "Yves".into(), true);
-    traiter(&Reponse::Ok(utilisateur));
+    // Initialisation des users
+    let yves: Utilisateur = Utilisateur::new(7, "Yves".into(), true);
+    let bernie: Utilisateur = Utilisateur::new(12, "Bernie".into(), false);
 
-    let utilisateur2: Utilisateur = Utilisateur::new(12, "Bernie".into(), false);
-    traiter(&Reponse::Ok(utilisateur2));
+    //Initialisation des reponses
+    let yves_ok = Reponse::ok(yves);
+    let bernie_ok = Reponse::ok(bernie);
+    let redirection = Reponse::redirect("/connexion".into());
+    let erreur = Reponse::erreur(404, "Page introuvable".into());
+    let reponse_api = Reponse::timeout();
 
-    traiter(&Reponse::Redirection{url: "/connexion".into(), permanente: false });
-    traiter(&Reponse::Erreur {code: 404, message: "Page introuvable".into() });
-    traiter(&Reponse::Timeout);
+    //Appels de la fonction taiter
+    yves_ok.traiter();
+    bernie_ok.traiter();
+    redirection.traiter();
+    erreur.traiter();
+    reponse_api.traiter();
 
 }
 
